@@ -1,0 +1,177 @@
+/* Configuración Base */
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("heart-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: "Pixelify Sans", sans-serif;
+    overflow: hidden;
+}
+
+
+/* Pantalla del Sobre (Envelope) */
+
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#envelope-container p {
+    font-size: 20px;
+    color: #a33;
+    margin-top: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope {
+    width: 160px;
+    animation: pulse 1.5s infinite;
+}
+
+
+/* Pantalla de la Carta - CENTRADO TOTAL */
+
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    /* Centrado horizontal y vertical absoluto */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 20;
+}
+
+
+/* Ventana de la Carta */
+
+.letter-window {
+    width: 90vw;
+    max-width: 360px;
+    /* Tamaño más compacto */
+    min-height: 320px;
+    /* Altura proporcional */
+    /* Espaciado interno para que nada toque los bordes */
+    padding: 100px 15px 25px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Fondo de la ventana */
+    background-image: url("window.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    /* Animación de entrada */
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Elementos internos reducidos */
+
+h1 {
+    font-size: 18px;
+    margin-top: 0;
+    /* Elimina cualquier espacio extra arriba del texto */
+    margin-bottom: 5px;
+    color: #444;
+    line-height: 1.2;
+}
+
+.cat {
+    width: 100px;
+    /* Gato más pequeño */
+    margin: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+
+/* Botones */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn {
+    width: 65px;
+    /* Botones más pequeños */
+    height: auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn {
+    z-index: 25;
+    transition: transform 0.3s ease;
+}
+
+.no-btn {
+    z-index: 24;
+    transition: transform 0.2s ease;
+}
+
+
+/* Texto Final */
+
+.final-text {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    color: #333;
+}
+
+
+/* Ajustes para pantallas muy pequeñas */
+
+@media (max-width: 380px) {
+    .letter-window {
+        padding-top: 50px;
+        min-height: 280px;
+    }
+    h1 {
+        font-size: 15px;
+    }
+    .cat {
+        width: 85px;
+    }
+    .btn {
+        width: 60px;
+    }
+}
