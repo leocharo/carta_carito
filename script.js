@@ -52,7 +52,7 @@ noBtn.addEventListener("touchstart", (e) => {
 yesBtn.addEventListener("click", () => {
     // Enviar notificación a Formspree solo la primera vez
     if (!mensajeEnviado) {
-        fetch("https://formspree.io/f/mojnenpn", {
+        fetch("https://formspree.io/f/xojnenbw", {
             method: "POST",
             body: JSON.stringify({
                 mensaje: "¡Aceptó ser tu San Valentín! ❤️",
